@@ -5,7 +5,7 @@ public class Main {
             Book[] books = new Book[5];
 
 
-            Author rouling = new Author("Джоан", "Роулинг");
+            Author rouling = new Author("Джоан","Роулинг");
             Author tolkin = new Author("Джон", "Толкин");
 
             Book harryPotter1 = new Book("Гарри Поттер и Философский Камень", 1995, rouling);

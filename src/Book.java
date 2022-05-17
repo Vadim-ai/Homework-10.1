@@ -4,7 +4,7 @@ public class Book {
 
     private String nameOfBook;
     private int yearOfPublication;
-    public Author author;
+    private Author author;
 
     public Book(String nameOfBook, int yearOfPublication, Author author) {
         this.nameOfBook = nameOfBook;
@@ -25,12 +25,12 @@ public class Book {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Book book = (Book) o;
-        return yearOfPublication == book.yearOfPublication && Objects.equals(nameOfBook, book.nameOfBook);
+        return yearOfPublication == book.yearOfPublication && Objects.equals(nameOfBook, book.nameOfBook) && Objects.equals(author, book.author);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(nameOfBook, yearOfPublication);
+        return Objects.hash(nameOfBook, yearOfPublication, author);
     }
 
     public void setYearOfPublication(int yearOfPublication) {
@@ -41,40 +41,4 @@ public class Book {
         return this.author + this.nameOfBook + " : " + this.yearOfPublication;
     }
 }
-class Author {
 
-    private String nameAuthor;
-    private String surnameAuthor;
-
-    @Override
-    public String toString() {
-        return  nameAuthor + " " + surnameAuthor + " : ";
-    }
-
-    public Author(String nameAuthor, String surnameAuthor) {
-        this.nameAuthor = nameAuthor;
-        this.surnameAuthor = surnameAuthor;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Author author = (Author) o;
-        return Objects.equals(nameAuthor, author.nameAuthor) && Objects.equals(surnameAuthor, author.surnameAuthor);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(nameAuthor, surnameAuthor);
-    }
-
-    public String getNameAuthor() {
-        return this.nameAuthor;
-    }
-
-    public String getSurnameAuthor() {
-        return this.surnameAuthor;
-    }
-
-}
